@@ -14,6 +14,7 @@ public class MakeGist {
 
 	private Map<String, GistFile> gistFiles = new HashMap<>();
 	private Gist gist = new Gist();
+	private Gist published;
 
 	public MakeGist() {
 	}
@@ -28,6 +29,7 @@ public class MakeGist {
 		description) {
 		this(service, fileList);
 		gist.setDescription(description);
+		this.published = makeGist(service, this.gist);
 	}
 
 
@@ -62,6 +64,10 @@ public class MakeGist {
 			retval = new Gist();
 		}
 		return retval;
+	}
+
+	public Gist getPublished() {
+		return this.published;
 	}
 
 }
